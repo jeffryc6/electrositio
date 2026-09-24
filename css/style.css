@@ -1,0 +1,44 @@
+/* ==========================================================================
+   ELECTROPLAST AI-CORE 3D PRO // NEXACORE THEME
+   Fondo universo molecular, atmósfera azul noche profunda y esmeralda neón
+   ========================================================================== */
+
+:root {
+  --nexa-bg: #03060f;
+  --nexa-card: #070d1e;
+  --nexa-border: rgba(255, 255, 255, 0.08);
+  --nexa-mint: #34d399;
+  --nexa-cyber: #00ff88;
+}
+
+/* Canvas del cosmos molecular */
+#cosmosCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #03060f;
+}
+::-webkit-scrollbar-thumb {
+  background: #111d38;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Botón de pieza activo */
+.part-btn.active {
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  background-color: rgba(16, 185, 129, 0.15) !important;
+}
