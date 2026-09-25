@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth bg-[#03060f] text-slate-100">
+<html lang="es" class="scroll-smooth bg-[#05070d] text-slate-100">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ELECTROPLAST | Engineering, AI &amp; Polymer Precision 3D</title>
-  
-  <!-- Tipografía Oficial NexaCore: Plus Jakarta Sans & JetBrains Mono -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -22,9 +20,9 @@
           },
           colors: {
             nexa: {
-              bg: '#03060f',
-              card: 'rgba(7, 13, 29, 0.75)',
-              border: 'rgba(255, 255, 255, 0.08)',
+              bg: '#05070d',
+              card: '#0b0f19',
+              border: '#1e293b',
               emerald: '#10b981',
               mint: '#34d399',
               cyber: '#00ff88',
@@ -34,25 +32,24 @@
       }
     }
   </script>
-  
-  <!-- Lucide Icons & Three.js CDN -->
+
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-[#03060f] text-slate-200 antialiased overflow-x-hidden selection:bg-nexa-cyber selection:text-black">
+<body class="bg-[#05070d] text-slate-200 antialiased overflow-x-hidden selection:bg-emerald-500 selection:text-black">
 
-  <!-- FONDO COSMOS 3D (CANVAS THREE.JS) -->
+  <!-- FONDO COSMOS 3D -->
   <canvas id="cosmosCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
   <!-- BARRA DE TELEMETRÍA SUPERIOR -->
-  <aside class="relative z-50 border-b border-white/[0.08] bg-[#03060f]/85 backdrop-blur-xl py-2 px-4 sm:px-8 text-[11px] font-mono text-slate-400">
+  <aside class="ep-topbar relative z-50 py-2 px-4 sm:px-8 text-[11px] font-mono text-slate-400">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <span class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-nexa-mint font-medium text-[10px]">
-          <span class="w-1.5 h-1.5 rounded-full bg-nexa-cyber animate-ping"></span>
+        <span class="ep-badge ep-badge-accent">
+          <span class="ep-status-dot"></span>
           AI-OPERATED // OROTINA 24/7
         </span>
         <span class="hidden md:inline text-slate-700">|</span>
@@ -62,7 +59,7 @@
       </div>
       <div class="flex items-center gap-5">
         <a href="tel:+50622440404" class="hover:text-nexa-mint transition-colors flex items-center gap-1.5">
-          <i data-lucide="phone-call" class="w-3 h-3 text-nexa-emerald"></i> (506) 2244-0404
+          <i data-lucide="phone-call" class="w-3 h-3"></i> (506) 2244-0404
         </a>
         <div class="flex items-center gap-1 font-semibold text-slate-200">
           <span class="text-nexa-cyber cursor-pointer">ES</span>
@@ -73,69 +70,67 @@
     </div>
   </aside>
 
-  <!-- NAVEGACIÓN SUSPENDIDA -->
-  <header class="sticky top-4 z-40 max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="rounded-2xl border border-white/[0.08] bg-[#070d1e]/85 backdrop-blur-2xl px-6 h-20 flex items-center justify-between shadow-[0_15px_40px_-15px_rgba(0,0,0,0.8)]">
-      <a href="#" class="flex items-center gap-3.5 group">
-        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-400 via-teal-500 to-slate-900 p-[1px] shadow-[0_0_25px_rgba(16,185,129,0.35)]">
-          <div class="w-full h-full bg-[#070d1e] rounded-[11px] flex items-center justify-center">
-            <i data-lucide="box" class="w-5 h-5 text-nexa-cyber"></i>
-          </div>
+  <!-- NAVEGACIÓN -->
+  <header class="ep-nav sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-md bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center">
+          <i data-lucide="box" class="w-4 h-4 text-black"></i>
         </div>
         <div>
-          <span class="text-xl font-extrabold tracking-tight text-white block leading-none">
+          <span class="text-base font-extrabold tracking-tight text-white block leading-none">
             ELECTRO<span class="text-nexa-mint">PLAST</span>
           </span>
-          <span class="text-[9px] font-mono tracking-widest text-slate-400 uppercase">AI &amp; Precision Molding</span>
+          <span class="text-[9px] font-mono tracking-widest text-slate-500 uppercase">AI &amp; Precision Molding</span>
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-1 text-xs font-semibold text-slate-300">
-        <a href="#cleanrooms" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-white/[0.04] transition-all">Cleanrooms (ISO 8)</a>
-        <a href="#maquinaria" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-white/[0.04] transition-all">Flota 27 Prensas</a>
-        <a href="#toolshop" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-white/[0.04] transition-all">Tool Shop</a>
-        <a href="#zonafranca" class="px-3.5 py-2 rounded-xl hover:text-white hover:bg-white/[0.04] transition-all">Zona Franca</a>
-        <a href="#simulador" class="px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-nexa-mint hover:bg-emerald-500/20 flex items-center gap-2">
-          <i data-lucide="layers" class="w-4 h-4 text-nexa-cyber animate-pulse"></i> Simulador 3D Reológico
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="#cleanrooms" class="ep-nav-link">Cleanrooms (ISO 8)</a>
+        <a href="#maquinaria" class="ep-nav-link">Flota 27 Prensas</a>
+        <a href="#toolshop" class="ep-nav-link">Tool Shop</a>
+        <a href="#zonafranca" class="ep-nav-link">Zona Franca</a>
+        <a href="#simulador" class="ep-nav-link ep-nav-link-accent">
+          <i data-lucide="layers" class="w-3.5 h-3.5"></i> Simulador 3D
         </a>
       </nav>
 
-      <a href="#cotizar" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-nexa-cyber to-emerald-400 hover:opacity-95 shadow-[0_0_25px_rgba(0,255,136,0.35)] transition-all">
+      <a href="#cotizar" class="ep-btn-primary">
         <span>Cotización RFQ</span>
-        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
       </a>
     </div>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="relative pt-20 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto z-10">
     <div class="grid lg:grid-cols-12 gap-12 items-center">
       <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-xs font-mono text-emerald-300">
-          <span class="w-2 h-2 rounded-full bg-nexa-cyber shadow-[0_0_10px_#00ff88]"></span>
+        <div class="ep-badge ep-badge-accent">
+          <span class="ep-status-dot"></span>
           <span>NEARSHORING MÉDICO · INGENIERÍA ASISTIDA POR IA</span>
         </div>
 
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.05]">
-          Moldeo por Inyección de <span class="bg-gradient-to-r from-white via-slate-100 to-nexa-mint bg-clip-text text-transparent">Alta Precisión</span> en 3D.
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] ep-hero-title">
+          Moldeo por Inyección de Alta Precisión en 3D.
         </h1>
 
         <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed max-w-2xl">
-          Transformamos polímeros de grado médico y técnico en componentes críticos validados para OEM multinacionales. Respaldados por <strong>7,000 sq ft en 4 Cuartos Limpios ISO Clase 8</strong>, parque de 27 inyectoras Engel y Toyo, taller de moldes in-house y el régimen de Zona Franca en Costa Rica.
+          Transformamos polímeros de grado médico y técnico en componentes críticos validados para OEM multinacionales. Respaldados por <strong class="text-white">7,000 sq ft en 4 Cuartos Limpios ISO Clase 8</strong>, parque de 27 inyectoras Engel y Toyo, taller de moldes in-house y el régimen de Zona Franca en Costa Rica.
         </p>
 
-        <div class="flex flex-wrap items-center gap-4 pt-2 font-mono text-xs">
-          <a href="#simulador" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold uppercase tracking-wider bg-gradient-to-r from-nexa-cyber to-emerald-400 text-black shadow-[0_0_30px_rgba(0,255,136,0.35)] hover:opacity-95 transition-all">
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#simulador" class="ep-btn-primary">
             <i data-lucide="box" class="w-4 h-4"></i>
             Abrir Simulador 3D Reológico
           </a>
-          <a href="#cleanrooms" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold tracking-wider border border-white/10 hover:border-emerald-500/40 bg-white/[0.03] text-slate-200 hover:text-white transition-all">
+          <a href="#cleanrooms" class="ep-btn-secondary">
             <i data-lucide="shield-check" class="w-4 h-4 text-nexa-mint"></i>
             Explorar Salas Blancas ISO 8
           </a>
         </div>
 
-        <div class="pt-8 border-t border-white/[0.08] flex flex-wrap items-center gap-8 font-mono text-xs text-slate-400">
+        <div class="pt-8 border-t border-slate-800 flex flex-wrap items-center gap-8 font-mono text-xs text-slate-400">
           <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-nexa-mint"></i><span>ISO 9001:2015</span></div>
           <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-nexa-mint"></i><span>ISO 13485 MEDICAL</span></div>
           <div class="flex items-center gap-2"><i data-lucide="award" class="w-4 h-4 text-emerald-400"></i><span>Gran Premio Excelencia</span></div>
@@ -144,17 +139,17 @@
 
       <!-- VISUALIZADOR DE PLANTA -->
       <div class="lg:col-span-5">
-        <div class="relative rounded-3xl border border-white/[0.08] bg-[#070e20]/90 backdrop-blur-2xl p-4 shadow-2xl">
-          <div class="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/[0.08] mb-4 group">
-            <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80" 
-              alt="Electroplast Cleanroom Medical Injection" 
+        <div class="ep-card p-4">
+          <div class="relative rounded-md overflow-hidden aspect-[4/3] border border-slate-800 mb-4 group">
+            <img
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80"
+              alt="Electroplast Cleanroom Medical Injection"
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-90"
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-[#03060f] via-transparent to-transparent"></div>
-            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between p-3 rounded-xl bg-[#070e20]/90 backdrop-blur-md border border-white/[0.08]">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#05070d] via-transparent to-transparent"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between p-3 rounded-md bg-[#0b0f19]/95 border border-slate-800">
               <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-nexa-cyber animate-ping"></span>
+                <span class="ep-status-dot"></span>
                 <span class="text-xs font-mono text-white font-semibold">PLANTA EN OPERACIÓN 24/7</span>
               </div>
               <span class="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded">ISO CLASE 8</span>
@@ -162,12 +157,12 @@
           </div>
 
           <div class="grid grid-cols-2 gap-3 font-mono">
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.06]">
+            <div class="p-3.5 rounded-md ep-panel">
               <span class="text-[10px] text-slate-400 uppercase">Capacidad Máquinas</span>
               <div class="text-2xl font-black text-white mt-0.5">27 <span class="text-xs text-nexa-mint font-normal">Prensas</span></div>
               <span class="text-[10px] text-slate-400">Engel &amp; Toyo 50T-300T</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.06]">
+            <div class="p-3.5 rounded-md ep-panel">
               <span class="text-[10px] text-slate-400 uppercase">Área Sala Blanca</span>
               <div class="text-2xl font-black text-white mt-0.5">7,000 <span class="text-xs text-nexa-mint font-normal">sq ft</span></div>
               <span class="text-[10px] text-slate-400">4 Zonas Segregadas</span>
@@ -178,14 +173,12 @@
     </div>
   </section>
 
-  <!-- ================================================================= -->
-  <!-- SIMULADOR 3D AVANZADO CON INYECCIÓN VOLUMÉTRICA Y SHOWCASE 3D     -->
-  <!-- ================================================================= -->
-  <section id="simulador" class="py-24 relative z-10">
+  <!-- SIMULADOR 3D -->
+  <section id="simulador" class="ep-section py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-nexa-mint font-mono text-xs mb-3">
+        <div class="ep-badge ep-badge-accent mb-3">
           <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
           PHYSICS &amp; REOLOGY LAB // MODELADO Y SHOWCASE TRIDIMENSIONAL
         </div>
@@ -193,38 +186,38 @@
           Simulador 3D de Molde de Inyección &amp; Pieza Formada
         </h2>
         <p class="text-slate-400 mt-4 text-sm sm:text-base leading-relaxed">
-          Experimenta la inyección volumétrica a presión con gradiente térmico desde la boquilla hacia los bebederos (*runners*) y compuertas (*gates*). Al terminar el ciclo, el simulador hace una transición cinemática para <strong>inspeccionar en 360° la pieza médica final moldeada</strong>.
+          Experimenta la inyección volumétrica a presión con gradiente térmico desde la boquilla hacia los bebederos y compuertas. Al terminar el ciclo, el simulador hace una transición cinemática para <strong class="text-white">inspeccionar en 360° la pieza médica final moldeada</strong>.
         </p>
       </div>
 
-      <div class="rounded-3xl border border-white/[0.08] bg-[#070e20]/90 backdrop-blur-2xl p-6 sm:p-10 shadow-[0_0_80px_-20px_rgba(16,185,129,0.25)]">
-        
-        <!-- SELECTOR DE PIEZAS A MOLDEAR -->
-        <div class="mb-8 p-4 rounded-2xl bg-[#040813] border border-white/[0.06]">
+      <div class="ep-card p-6 sm:p-10">
+
+        <!-- SELECTOR DE PIEZAS -->
+        <div class="mb-8 p-4 ep-panel">
           <span class="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-3">
             01. SELECCIONA LA GEOMETRÍA A FABRICAR:
           </span>
           <div class="grid sm:grid-cols-3 gap-3 font-mono text-xs" id="part-selector">
-            <button type="button" data-part="luer" class="part-btn active text-left p-3.5 rounded-xl border border-emerald-500/50 bg-emerald-500/15 text-white transition-all">
+            <button type="button" data-part="luer" class="part-btn active text-left p-3.5">
               <div class="flex items-center justify-between">
                 <span class="font-bold text-nexa-mint">Conector Luer Lock</span>
-                <span class="text-[10px] bg-emerald-500/20 px-1.5 py-0.5 rounded text-nexa-cyber">PIEZA #1</span>
+                <span class="text-[10px] bg-emerald-500/15 px-1.5 py-0.5 rounded text-nexa-mint">PIEZA #1</span>
               </div>
               <p class="text-[11px] text-slate-300 font-sans mt-1">Conector tubular intravenoso con rosca exterior y aletas cónicas de acople.</p>
             </button>
 
-            <button type="button" data-part="manifold" class="part-btn text-left p-3.5 rounded-xl border border-white/[0.08] bg-white/[0.02] text-slate-300 hover:border-emerald-500/40 hover:text-white transition-all">
+            <button type="button" data-part="manifold" class="part-btn text-left p-3.5">
               <div class="flex items-center justify-between">
                 <span class="font-bold text-slate-200">Manifold Quirúrgico</span>
-                <span class="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-slate-400">PIEZA #2</span>
+                <span class="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-400">PIEZA #2</span>
               </div>
               <p class="text-[11px] text-slate-400 font-sans mt-1">Bloque de distribución de fluidos con 3 puertos independientes y canales internos.</p>
             </button>
 
-            <button type="button" data-part="cap" class="part-btn text-left p-3.5 rounded-xl border border-white/[0.08] bg-white/[0.02] text-slate-300 hover:border-emerald-500/40 hover:text-white transition-all">
+            <button type="button" data-part="cap" class="part-btn text-left p-3.5">
               <div class="flex items-center justify-between">
                 <span class="font-bold text-slate-200">Tapa Vial Hermética</span>
-                <span class="text-[10px] bg-white/10 px-1.5 py-0.5 rounded text-slate-400">PIEZA #3</span>
+                <span class="text-[10px] bg-white/5 px-1.5 py-0.5 rounded text-slate-400">PIEZA #3</span>
               </div>
               <p class="text-[11px] text-slate-400 font-sans mt-1">Cierre hermético con estrías antideslizantes para viales farmacológicos estériles.</p>
             </button>
@@ -232,19 +225,19 @@
         </div>
 
         <div class="grid lg:grid-cols-12 gap-8 items-start">
-          
+
           <!-- PARÁMETROS -->
           <div class="lg:col-span-5 space-y-5">
-            <div class="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
               <span class="text-xs font-mono font-bold uppercase tracking-wider text-nexa-mint flex items-center gap-2">
                 <i data-lucide="sliders-horizontal" class="w-4 h-4"></i> Parámetros Reológicos
               </span>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-nexa-cyber">MOTOR 3D EN LÍNEA</span>
+              <span class="ep-badge">MOTOR 3D EN LÍNEA</span>
             </div>
 
             <div>
               <label class="block text-xs font-mono text-slate-300 mb-1.5">Resina / Polímero Médico:</label>
-              <select id="sim-material" class="w-full bg-[#040813] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-nexa-mint">
+              <select id="sim-material" class="ep-select">
                 <option value="PP" data-temp="220" data-shrink="1.5" data-pressure="400">Polipropileno Médico (PP) - 400 bar (220°C)</option>
                 <option value="PC" data-temp="290" data-shrink="0.6" data-pressure="650">Policarbonato Transparente (PC) - 650 bar (290°C)</option>
                 <option value="ABS" data-temp="240" data-shrink="0.5" data-pressure="500">ABS Grado Ingeniería - 500 bar (240°C)</option>
@@ -258,7 +251,7 @@
                 <span>Área Proyectada / Cavidad:</span>
                 <span id="val-area" class="text-nexa-mint font-bold">45 cm²</span>
               </div>
-              <input id="sim-area" type="range" min="10" max="250" value="45" class="w-full accent-nexa-cyber cursor-pointer">
+              <input id="sim-area" type="range" min="10" max="250" value="45" class="w-full cursor-pointer">
             </div>
 
             <div>
@@ -266,7 +259,7 @@
                 <span>Cavidades del Molde:</span>
                 <span id="val-cavities" class="text-nexa-mint font-bold">4 cavidades</span>
               </div>
-              <input id="sim-cavities" type="range" min="1" max="8" step="1" value="4" class="w-full accent-nexa-cyber cursor-pointer">
+              <input id="sim-cavities" type="range" min="1" max="8" step="1" value="4" class="w-full cursor-pointer">
             </div>
 
             <div>
@@ -274,12 +267,12 @@
                 <span>Espesor de Pared:</span>
                 <span id="val-thickness" class="text-white font-bold">1.5 mm</span>
               </div>
-              <input id="sim-thickness" type="range" min="0.5" max="4.5" step="0.1" value="1.5" class="w-full accent-nexa-cyber cursor-pointer">
+              <input id="sim-thickness" type="range" min="0.5" max="4.5" step="0.1" value="1.5" class="w-full cursor-pointer">
             </div>
 
             <div>
               <label class="block text-xs font-mono text-slate-300 mb-1.5">Inyectora Asignada (Flota Electroplast):</label>
-              <select id="sim-machine" class="w-full bg-[#040813] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white font-mono focus:outline-none focus:border-nexa-mint">
+              <select id="sim-machine" class="ep-select">
                 <option value="50">Toyo Eléctrica 50T (Precisión Micro)</option>
                 <option value="90">Engel 90T (Clean Room ISO 8)</option>
                 <option value="128">Engel 128T (ISO Class 8)</option>
@@ -291,49 +284,46 @@
             </div>
 
             <div class="space-y-2">
-              <button id="btn-run-sim" class="w-full py-4 rounded-xl font-mono text-xs font-extrabold uppercase tracking-wider text-black bg-gradient-to-r from-nexa-cyber via-emerald-400 to-teal-300 hover:opacity-95 shadow-[0_0_25px_rgba(0,255,136,0.35)] transition-all flex items-center justify-center gap-2">
+              <button id="btn-run-sim" class="ep-btn-primary w-full justify-center">
                 <i data-lucide="play" class="w-4 h-4 fill-current"></i>
                 Disparar Inyección &amp; Formado 3D
               </button>
 
-              <button id="btn-toggle-view" class="hidden w-full py-2.5 rounded-xl font-mono text-xs font-semibold text-slate-300 border border-white/10 hover:border-nexa-mint hover:text-white bg-white/[0.03] transition-all flex items-center justify-center gap-2">
+              <button id="btn-toggle-view" class="hidden ep-btn-secondary w-full justify-center">
                 <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-nexa-mint"></i>
                 <span id="btn-toggle-text">Ver Molde de Inyección</span>
               </button>
             </div>
           </div>
 
-          <!-- PANTALLA 3D CON THREE.JS (MOLD & PART SHOWCASE) -->
+          <!-- PANTALLA 3D -->
           <div class="lg:col-span-7 flex flex-col justify-between space-y-5">
-            <div class="relative rounded-2xl bg-[#02050e] border border-emerald-500/25 p-5 overflow-hidden shadow-inner">
-              
+            <div class="relative ep-card p-5 overflow-hidden">
+
               <div class="flex items-center justify-between text-xs font-mono mb-2">
                 <span class="flex items-center gap-2">
-                  <span id="sim-status-dot" class="w-2 h-2 rounded-full bg-nexa-cyber"></span>
+                  <span id="sim-status-dot" class="ep-status-dot"></span>
                   ESTADO: <span id="sim-status-text" class="text-nexa-mint font-bold">MOLDE CERRADO // LISTO</span>
                 </span>
                 <span class="text-slate-400 text-[11px]" id="sim-timestamp">CYCLE: 0.0s</span>
               </div>
 
               <!-- VIEWPORT THREE.JS -->
-              <div id="threeViewport" class="relative w-full h-[270px] rounded-xl bg-[#010308] border border-white/[0.06] overflow-hidden cursor-grab active:cursor-grabbing">
-                
-                <!-- Tag de modo y pieza activa -->
-                <div class="absolute top-2.5 left-3 font-mono text-[10px] text-slate-300 bg-black/75 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10 z-10 flex items-center gap-2">
-                  <span class="w-1.5 h-1.5 rounded-full bg-nexa-cyber"></span>
+              <div id="threeViewport" class="ep-viewport relative w-full h-[270px] overflow-hidden cursor-grab active:cursor-grabbing">
+
+                <div class="absolute top-2.5 left-3 font-mono text-[10px] text-slate-300 bg-black/70 px-2.5 py-1 rounded border border-slate-800 z-10 flex items-center gap-2">
+                  <span class="ep-status-dot"></span>
                   <span id="canvas-mode-badge" class="uppercase text-slate-400">VISTA: MOLDE</span>
                   <span class="text-slate-600">/</span>
-                  <span id="canvas-part-label" class="text-nexa-cyber font-bold">CONECTOR LUER (TUBULAR)</span>
+                  <span id="canvas-part-label" class="text-nexa-mint font-bold">CONECTOR LUER (TUBULAR)</span>
                 </div>
 
-                <!-- Badge de Boquilla de Inyección Activa -->
-                <div id="nozzle-fire-badge" class="hidden absolute top-2.5 right-3 font-mono text-[10px] text-amber-300 bg-amber-950/80 backdrop-blur-md px-2.5 py-1 rounded-md border border-amber-500/40 z-10 flex items-center gap-1.5 animate-pulse">
-                  <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                <div id="nozzle-fire-badge" class="hidden absolute top-2.5 right-3 font-mono text-[10px] text-amber-300 bg-amber-950/80 px-2.5 py-1 rounded border border-amber-500/40 z-10 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                   INYECCIÓN POR BOQUILLA ACTIVA
                 </div>
 
-                <!-- Overlay de Inspección 3D (aparece al terminar el formado) -->
-                <div id="part-showcase-panel" class="hidden absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#050b18]/90 backdrop-blur-md border border-emerald-500/30 z-10 flex items-center justify-between font-mono text-xs">
+                <div id="part-showcase-panel" class="hidden absolute bottom-3 left-3 right-3 p-3 rounded-md bg-[#050b18]/95 border border-emerald-500/30 z-10 flex items-center justify-between font-mono text-xs">
                   <div>
                     <span class="text-nexa-cyber font-bold text-[11px] block">INSPECCIÓN ÓPTICA DE PIEZA FORMADA 3D: OK</span>
                     <span class="text-[10px] text-slate-400">Acabado superficial Ra 0.2 µm · Tolerancia ±0.005mm</span>
@@ -344,41 +334,41 @@
                 </div>
 
                 <div class="absolute bottom-2.5 right-3 font-mono text-[10px] text-emerald-400 flex items-center gap-1.5 bg-black/60 px-2 py-0.5 rounded border border-emerald-500/20 z-0">
-                  <span class="w-1.5 h-1.5 rounded-full bg-nexa-cyber animate-pulse"></span>
+                  <span class="ep-status-dot"></span>
                   INTERACCIÓN 3D ACTIVA
                 </div>
               </div>
 
-              <!-- TELEMETRÍA DE BOQUILLA Y CAVIDAD -->
-              <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-mono border-t border-white/[0.08] pt-3 mt-3">
-                <div class="bg-white/[0.02] p-2 rounded-xl">
+              <!-- TELEMETRÍA -->
+              <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-mono border-t border-slate-800 pt-3 mt-3">
+                <div class="ep-panel p-2">
                   <span class="text-slate-500 block text-[9px]">TEMP BOQUILLA / FUNDIDO</span>
                   <strong class="text-amber-400 font-bold" id="sim-temp-disp">220°C</strong>
                 </div>
-                <div class="bg-white/[0.02] p-2 rounded-xl">
+                <div class="ep-panel p-2">
                   <span class="text-slate-500 block text-[9px]">PRESIÓN ESPECÍFICA</span>
                   <strong class="text-emerald-400 font-bold" id="sim-pressure-disp">400 bar</strong>
                 </div>
-                <div class="bg-white/[0.02] p-2 rounded-xl">
+                <div class="ep-panel p-2">
                   <span class="text-slate-500 block text-[9px]">ATMÓSFERA DE PLANTA</span>
                   <strong class="text-nexa-mint font-bold">ISO CLASE 8</strong>
                 </div>
               </div>
             </div>
 
-            <!-- RESULTADOS NUMÉRICOS -->
+            <!-- RESULTADOS -->
             <div class="grid grid-cols-3 gap-3 font-mono">
-              <div class="p-4 rounded-xl bg-[#040813] border border-white/[0.06]">
+              <div class="p-4 ep-panel">
                 <span class="text-[10px] text-slate-400 uppercase block">Fuerza Requerida</span>
                 <div class="text-2xl font-black text-white mt-0.5" id="res-tonnage">83 T</div>
                 <span class="text-[9px] text-slate-500">Clamping Force Req.</span>
               </div>
-              <div class="p-4 rounded-xl bg-[#040813] border border-white/[0.06]">
+              <div class="p-4 ep-panel">
                 <span class="text-[10px] text-slate-400 uppercase block">Tiempo Ciclo</span>
                 <div class="text-2xl font-black text-nexa-mint mt-0.5" id="res-cycle">11.8 s</div>
                 <span class="text-[9px] text-slate-500">T_enfriamiento + Iny</span>
               </div>
-              <div class="p-4 rounded-xl bg-[#040813] border border-white/[0.06]">
+              <div class="p-4 ep-panel">
                 <span class="text-[10px] text-slate-400 uppercase block">Producción / Hora</span>
                 <div class="text-2xl font-black text-white mt-0.5" id="res-output">1,220 pzs</div>
                 <span class="text-[9px] text-slate-500">Rendimiento Neto</span>
@@ -386,8 +376,8 @@
             </div>
 
             <!-- DIAGNÓSTICO -->
-            <div id="sim-diagnostic-card" class="p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/5 text-xs font-mono">
-              <div class="flex items-center gap-2 text-nexa-mint font-bold mb-1" id="diag-title">
+            <div id="sim-diagnostic-card" class="p-4 ep-panel border-emerald-500/30">
+              <div class="flex items-center gap-2 text-nexa-mint font-bold mb-1 text-xs font-mono" id="diag-title">
                 <i data-lucide="check-circle-2" class="w-4 h-4"></i>
                 <span>PARÁMETROS BALANCEADOS &amp; VALIDACIÓN COMPLETA</span>
               </div>
@@ -402,11 +392,11 @@
   </section>
 
   <!-- CUARTOS LIMPIOS ISO CLASE 8 -->
-  <section id="cleanrooms" class="py-24 border-t border-white/[0.08] bg-[#040713]/70 relative z-10">
+  <section id="cleanrooms" class="ep-section-alt py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-6 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-nexa-mint font-mono text-xs">
+          <div class="ep-badge ep-badge-accent">
             <i data-lucide="shield" class="w-3.5 h-3.5"></i>
             NORMATIVA ISO 14644-1 AMBIENTES CONTROLADOS
           </div>
@@ -418,14 +408,14 @@
           </p>
 
           <div class="space-y-3 pt-2 font-mono text-xs">
-            <div class="p-4 rounded-2xl bg-[#070e20] border border-white/[0.06] flex items-start gap-4">
+            <div class="p-4 ep-panel flex items-start gap-4">
               <i data-lucide="activity" class="w-5 h-5 text-nexa-cyber shrink-0 mt-0.5"></i>
               <div>
                 <strong class="text-white text-sm font-sans block">17 Inyectoras en Operación Ininterrumpida 24/7</strong>
                 <span class="text-slate-400">17 de las 27 máquinas de la planta operan bajo atmósfera de sala blanca para suplir a multinacionales OEM.</span>
               </div>
             </div>
-            <div class="p-4 rounded-2xl bg-[#070e20] border border-white/[0.06] flex items-start gap-4">
+            <div class="p-4 ep-panel flex items-start gap-4">
               <i data-lucide="wind" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
               <div>
                 <strong class="text-white text-sm font-sans block">Clasificación Clase 100,000</strong>
@@ -436,20 +426,20 @@
         </div>
 
         <div class="lg:col-span-6">
-          <div class="rounded-3xl border border-white/[0.08] bg-[#070e20]/85 backdrop-blur-xl p-6 sm:p-8 space-y-4 font-mono text-xs shadow-2xl">
-            <div class="rounded-xl overflow-hidden aspect-video border border-white/[0.08] relative mb-4">
-              <img 
-                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80" 
-                alt="Cuarto Limpio ISO 8 Electroplast" 
+          <div class="ep-card p-6 sm:p-8 space-y-4 font-mono text-xs">
+            <div class="rounded-md overflow-hidden aspect-video border border-slate-800 relative mb-4">
+              <img
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1000&q=80"
+                alt="Cuarto Limpio ISO 8 Electroplast"
                 class="w-full h-full object-cover brightness-95"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-[#070e20] via-transparent to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0b0f19] via-transparent to-transparent"></div>
               <div class="absolute bottom-2 left-3 font-mono text-[10px] text-nexa-mint font-bold">
                 AUDITADO BAJO ESTÁNDARES FDA / CE
               </div>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex items-center justify-between">
+            <div class="p-3.5 ep-panel flex items-center justify-between">
               <div>
                 <div class="text-white font-bold font-sans text-sm">Zona 1: Inyección Médica Crítica</div>
                 <div class="text-slate-400 text-[11px]">Prensas Engel eléctricas sin aceite hidráulico</div>
@@ -457,7 +447,7 @@
               <span class="px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/30 text-nexa-mint font-bold text-[10px]">ISO 8</span>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex items-center justify-between">
+            <div class="p-3.5 ep-panel flex items-center justify-between">
               <div>
                 <div class="text-white font-bold font-sans text-sm">Zona 2: Ensamble &amp; Submontaje</div>
                 <div class="text-slate-400 text-[11px]">5 líneas dedicadas con estaciones antiestáticas ESD</div>
@@ -465,7 +455,7 @@
               <span class="px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/30 text-nexa-mint font-bold text-[10px]">ISO 8</span>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex items-center justify-between">
+            <div class="p-3.5 ep-panel flex items-center justify-between">
               <div>
                 <div class="text-white font-bold font-sans text-sm">Zona 3: Tampografía (Pad Printing)</div>
                 <div class="text-slate-400 text-[11px]">Marcado de alta adherencia con tintas médicas clase VI</div>
@@ -473,7 +463,7 @@
               <span class="px-2.5 py-1 rounded bg-emerald-500/15 border border-emerald-500/30 text-nexa-mint font-bold text-[10px]">ISO 8</span>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex items-center justify-between">
+            <div class="p-3.5 ep-panel flex items-center justify-between">
               <div>
                 <div class="text-white font-bold font-sans text-sm">Zona 4: Empaque Primario y Sellado</div>
                 <div class="text-slate-400 text-[11px]">Termosellado pouch estéril y blister quirúrgico</div>
@@ -487,7 +477,7 @@
   </section>
 
   <!-- FLOTA DE 27 PRENSAS -->
-  <section id="maquinaria" class="py-24 border-t border-white/[0.08] relative z-10">
+  <section id="maquinaria" class="ep-section py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
@@ -502,7 +492,7 @@
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
-        <div class="p-5 rounded-2xl bg-[#070e20] border border-white/[0.06] hover:border-emerald-500/40 transition-all">
+        <div class="p-5 ep-card hover:border-emerald-500/40 transition-all">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-mint font-bold">300 TONELADAS</span>
             <span class="bg-white/5 px-2 py-0.5 rounded text-[11px]">3 Unidades</span>
@@ -511,7 +501,7 @@
           <p class="text-slate-400 font-sans text-xs mt-1.5 leading-relaxed">Carcasas de gran volumen y recipientes estructurales médicos.</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-[#070e20] border border-white/[0.06] hover:border-emerald-500/40 transition-all">
+        <div class="p-5 ep-card hover:border-emerald-500/40 transition-all">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-mint font-bold">280 TONELADAS</span>
             <span class="bg-white/5 px-2 py-0.5 rounded text-[11px]">1 Unidad</span>
@@ -520,7 +510,7 @@
           <p class="text-slate-400 font-sans text-xs mt-1.5 leading-relaxed">Moldes multicavidad de alto tonelaje para ciclo rápido.</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-[#070e20] border border-white/[0.06] hover:border-emerald-500/40 transition-all">
+        <div class="p-5 ep-card hover:border-emerald-500/40 transition-all">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-mint font-bold">220 &amp; 200T ELÉCTRICAS</span>
             <span class="bg-white/5 px-2 py-0.5 rounded text-[11px]">5 Unidades</span>
@@ -529,7 +519,7 @@
           <p class="text-slate-400 font-sans text-xs mt-1.5 leading-relaxed">Prensas 100% eléctricas especiales para sala blanca sin riesgo hidráulico.</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-[#070e20] border border-white/[0.06] hover:border-emerald-500/40 transition-all">
+        <div class="p-5 ep-card hover:border-emerald-500/40 transition-all">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-mint font-bold">180 TONELADAS</span>
             <span class="bg-white/5 px-2 py-0.5 rounded text-[11px]">5 Unidades</span>
@@ -538,7 +528,7 @@
           <p class="text-slate-400 font-sans text-xs mt-1.5 leading-relaxed">Suministro intensivo 24/7 para Abbott, Pfizer y Baxter.</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-[#070e20] border border-white/[0.06] hover:border-emerald-500/40 transition-all">
+        <div class="p-5 ep-card hover:border-emerald-500/40 transition-all">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-mint font-bold">140 &amp; 128 TONELADAS</span>
             <span class="bg-white/5 px-2 py-0.5 rounded text-[11px]">3 Unidades</span>
@@ -547,7 +537,7 @@
           <p class="text-slate-400 font-sans text-xs mt-1.5 leading-relaxed">Conectores electrónicos y dosificadores farmacológicos.</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-[#070e20] border border-white/[0.06] hover:border-emerald-500/40 transition-all">
+        <div class="p-5 ep-card hover:border-emerald-500/40 transition-all">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-mint font-bold">100 &amp; 90 TONELADAS</span>
             <span class="bg-white/5 px-2 py-0.5 rounded text-[11px]">4 Unidades</span>
@@ -556,7 +546,7 @@
           <p class="text-slate-400 font-sans text-xs mt-1.5 leading-relaxed">Piezas de tolerancia nanométrica y micro-canales de fluídica.</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-[#070e20] border border-white/[0.06] hover:border-emerald-500/40 transition-all">
+        <div class="p-5 ep-card hover:border-emerald-500/40 transition-all">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-mint font-bold">58 &amp; 50 TONELADAS</span>
             <span class="bg-white/5 px-2 py-0.5 rounded text-[11px]">4 Unidades</span>
@@ -565,7 +555,7 @@
           <p class="text-slate-400 font-sans text-xs mt-1.5 leading-relaxed">Puntas de catéter, tapones quirúrgicos e insert molding.</p>
         </div>
 
-        <div class="p-5 rounded-2xl bg-emerald-950/25 border border-emerald-500/40 hover:border-nexa-cyber transition-all">
+        <div class="p-5 ep-card border-emerald-500/40">
           <div class="flex justify-between text-slate-400 mb-3">
             <span class="text-nexa-cyber font-bold">ENSAMBLE &amp; PACK</span>
             <span class="bg-emerald-500/15 text-nexa-mint px-2 py-0.5 rounded text-[11px]">5 Líneas</span>
@@ -578,32 +568,32 @@
   </section>
 
   <!-- TOOL SHOP -->
-  <section id="toolshop" class="py-24 border-t border-white/[0.08] bg-[#040713]/70 relative z-10">
+  <section id="toolshop" class="ep-section-alt py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12 items-center">
         <div class="lg:col-span-5 order-2 lg:order-1">
-          <div class="rounded-3xl border border-white/[0.08] bg-[#070e20] p-7 font-mono text-xs space-y-3 shadow-2xl">
-            <div class="flex justify-between items-center pb-3 border-b border-white/[0.08] text-slate-400">
+          <div class="ep-card p-7 font-mono text-xs space-y-3">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-800 text-slate-400">
               <span class="text-nexa-mint font-bold">TOOL SHOP // MOLD MAINTENANCE</span>
               <span>IN-HOUSE</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex justify-between items-center">
+            <div class="p-3.5 ep-panel flex justify-between items-center">
               <span class="text-white">Centros de Maquinado CNC</span>
               <span class="text-nexa-cyber font-bold">ACTIVO</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex justify-between items-center">
+            <div class="p-3.5 ep-panel flex justify-between items-center">
               <span class="text-white">Electroerosionadoras por Penetración (EDM)</span>
               <span class="text-nexa-cyber font-bold">ACTIVO</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex justify-between items-center">
+            <div class="p-3.5 ep-panel flex justify-between items-center">
               <span class="text-white">Fresadoras Universales de Precisión</span>
               <span class="text-nexa-cyber font-bold">ACTIVO</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex justify-between items-center">
+            <div class="p-3.5 ep-panel flex justify-between items-center">
               <span class="text-white">Rectificadoras de Superficie Plana</span>
               <span class="text-nexa-cyber font-bold">ACTIVO</span>
             </div>
-            <div class="p-3.5 rounded-xl bg-[#040813] border border-white/[0.05] flex justify-between items-center">
+            <div class="p-3.5 ep-panel flex justify-between items-center">
               <span class="text-white">Tornos Mecánicos &amp; Instrumentación</span>
               <span class="text-nexa-cyber font-bold">ACTIVO</span>
             </div>
@@ -611,7 +601,7 @@
         </div>
 
         <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-nexa-mint font-mono text-xs">
+          <div class="ep-badge ep-badge-accent">
             <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
             TALLER INTERNO DE MANTENIMIENTO Y AJUSTE DE HERRAMENTALES
           </div>
@@ -622,15 +612,15 @@
             En Electroplast contamos con un Tool Shop interno dedicado a la conservación, calibración y rectificado inmediato de los moldes de nuestros clientes.
           </p>
           <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            Nuestra política de excelencia es transparente: para asegurar moldes de clase mundial, no los construimos desde cero, sino que <strong>supervisamos integralmente su fabricación</strong> con los mold-makers más respetados de Estados Unidos, Europa y Asia, garantizando su posterior preservación y vida útil en nuestra planta en Costa Rica.
+            Nuestra política de excelencia es transparente: para asegurar moldes de clase mundial, no los construimos desde cero, sino que <strong class="text-white">supervisamos integralmente su fabricación</strong> con los mold-makers más respetados de Estados Unidos, Europa y Asia, garantizando su posterior preservación y vida útil en nuestra planta en Costa Rica.
           </p>
-          
+
           <div class="grid grid-cols-2 gap-4 pt-3 font-mono text-xs">
-            <div class="p-4 rounded-xl bg-[#070e20] border-l-2 border-nexa-mint">
+            <div class="p-4 ep-panel border-l-2 border-nexa-mint">
               <div class="text-white font-bold font-sans">0 Paradas No Programadas</div>
               <p class="text-slate-400 font-sans text-xs mt-1">Limpieza ultrasónica y control óptico tras cada lote.</p>
             </div>
-            <div class="p-4 rounded-xl bg-[#070e20] border-l-2 border-nexa-mint">
+            <div class="p-4 ep-panel border-l-2 border-nexa-mint">
               <div class="text-white font-bold font-sans">Gestión de Repuestos</div>
               <p class="text-slate-400 font-sans text-xs mt-1">Inventario interno de insertos, eyectores y resortes críticos.</p>
             </div>
@@ -640,13 +630,13 @@
     </div>
   </section>
 
-  <!-- RÉGIMEN DE ZONA FRANCA -->
-  <section id="zonafranca" class="py-24 border-t border-white/[0.08] relative z-10">
+  <!-- ZONA FRANCA -->
+  <section id="zonafranca" class="ep-section py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-3xl border border-white/[0.08] bg-[#070e20]/90 backdrop-blur-2xl p-8 sm:p-14 shadow-2xl">
+      <div class="ep-card p-8 sm:p-14">
         <div class="grid lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-8 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-nexa-mint font-mono text-xs">
+            <div class="ep-badge ep-badge-accent">
               <i data-lucide="globe" class="w-3.5 h-3.5"></i>
               LEGISLACIÓN DE ZONA FRANCA (DESDE JUNIO 2015)
             </div>
@@ -658,25 +648,25 @@
             </p>
 
             <div class="grid sm:grid-cols-2 gap-4 font-mono text-xs pt-2">
-              <div class="p-4 rounded-2xl bg-[#040813] border border-white/[0.05]">
+              <div class="p-4 ep-panel">
                 <div class="text-white font-bold font-sans flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-nexa-cyber"></i> 0% Impuestos Arancelarios
                 </div>
                 <p class="text-slate-400 font-sans text-xs mt-1">Importación y exportación de resinas, aditivos y moldes 100% libre de tributos.</p>
               </div>
-              <div class="p-4 rounded-2xl bg-[#040813] border border-white/[0.05]">
+              <div class="p-4 ep-panel">
                 <div class="text-white font-bold font-sans flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-nexa-cyber"></i> Libre Tránsito de Moldes
                 </div>
                 <p class="text-slate-400 font-sans text-xs mt-1">Movilidad inmediata entre empresas dentro de parques de Zona Franca sin demoras aduaneras.</p>
               </div>
-              <div class="p-4 rounded-2xl bg-[#040813] border border-white/[0.05]">
+              <div class="p-4 ep-panel">
                 <div class="text-white font-bold font-sans flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-nexa-cyber"></i> +150 Colaboradores Calificados
                 </div>
                 <p class="text-slate-400 font-sans text-xs mt-1">Fuerza laboral altamente entrenada con programas continuos de excelencia operativa.</p>
               </div>
-              <div class="p-4 rounded-2xl bg-[#040813] border border-white/[0.05]">
+              <div class="p-4 ep-panel">
                 <div class="text-white font-bold font-sans flex items-center gap-2">
                   <i data-lucide="check" class="w-4 h-4 text-nexa-cyber"></i> Conectividad Nearshoring
                 </div>
@@ -685,7 +675,7 @@
             </div>
           </div>
 
-          <div class="lg:col-span-4 p-7 rounded-2xl bg-[#040813] border border-white/[0.08] text-center space-y-3">
+          <div class="lg:col-span-4 p-7 ep-panel text-center space-y-3">
             <i data-lucide="award" class="w-12 h-12 text-nexa-mint mx-auto"></i>
             <h3 class="text-base font-bold text-white font-sans">Gran Premio a la Excelencia</h3>
             <p class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">CÁMARA DE INDUSTRIAS DE COSTA RICA</p>
@@ -698,8 +688,8 @@
     </div>
   </section>
 
-  <!-- FORMULARIO DE COTIZACIÓN RFQ -->
-  <section id="cotizar" class="py-24 border-t border-white/[0.08] bg-[#03060f] relative z-10">
+  <!-- FORMULARIO RFQ -->
+  <section id="cotizar" class="ep-section py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-12 gap-12">
         <div class="lg:col-span-5 space-y-6">
@@ -726,33 +716,33 @@
             </div>
           </div>
 
-          <div class="p-4 rounded-xl bg-[#070e20] border border-white/[0.06] text-xs text-slate-400">
+          <div class="p-4 ep-panel text-xs text-slate-400">
             <strong class="text-white block mb-1">Gobernanza y Dirección Ejecutiva:</strong>
             Oscar Ramírez (Fundador) · Ing. Diego Vicente Ramírez (Operaciones) · Daniel Ramírez (Desarrollo Comercial).
           </div>
         </div>
 
         <div class="lg:col-span-7">
-          <form id="rfq-form" class="rounded-3xl border border-white/[0.08] bg-[#070e20]/90 p-8 sm:p-10 space-y-4 font-mono text-xs shadow-2xl">
+          <form id="rfq-form" class="ep-card p-8 sm:p-10 space-y-4">
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-slate-400 mb-1.5">Nombre Completo *</label>
-                <input type="text" required placeholder="Carlos Jiménez" class="w-full bg-[#040813] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-nexa-mint">
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">Nombre Completo *</label>
+                <input type="text" required placeholder="Carlos Jiménez" class="ep-input">
               </div>
               <div>
-                <label class="block text-slate-400 mb-1.5">Correo Corporativo *</label>
-                <input type="email" required placeholder="carlos@empresa.com" class="w-full bg-[#040813] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-nexa-mint">
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">Correo Corporativo *</label>
+                <input type="email" required placeholder="carlos@empresa.com" class="ep-input">
               </div>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-slate-400 mb-1.5">Empresa / OEM *</label>
-                <input type="text" required placeholder="Medical OEM Corp" class="w-full bg-[#040813] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-nexa-mint">
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">Empresa / OEM *</label>
+                <input type="text" required placeholder="Medical OEM Corp" class="ep-input">
               </div>
               <div>
-                <label class="block text-slate-400 mb-1.5">Sector de Aplicación</label>
-                <select class="w-full bg-[#040813] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-nexa-mint">
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">Sector de Aplicación</label>
+                <select class="ep-select">
                   <option>Dispositivos Médicos (Clean Room ISO 8)</option>
                   <option>Farmacéutica / Higiene</option>
                   <option>Electrónica de Precisión</option>
@@ -762,11 +752,11 @@
             </div>
 
             <div>
-              <label class="block text-slate-400 mb-1.5">Detalles del Requerimiento / Polímero / Volumen</label>
-              <textarea rows="4" placeholder="Indique resina requerida, número de cavidades del molde, tolerancia milimétrica o requerimiento de ensamble en cuarto limpio..." class="w-full bg-[#040813] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-nexa-mint font-sans text-xs"></textarea>
+              <label class="block text-xs font-mono text-slate-400 mb-1.5">Detalles del Requerimiento / Polímero / Volumen</label>
+              <textarea rows="4" placeholder="Indique resina requerida, número de cavidades del molde, tolerancia milimétrica o requerimiento de ensamble en cuarto limpio..." class="ep-input font-sans"></textarea>
             </div>
 
-            <button type="submit" class="w-full py-4 rounded-xl font-mono font-bold text-xs uppercase tracking-wider text-black bg-gradient-to-r from-nexa-cyber to-emerald-400 hover:opacity-95 shadow-[0_0_25px_rgba(0,255,136,0.3)] transition-all flex items-center justify-center gap-2">
+            <button type="submit" class="ep-btn-primary w-full justify-center">
               <i data-lucide="send" class="w-4 h-4"></i>
               Enviar Requerimiento RFQ a Ingeniería
             </button>
@@ -777,7 +767,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="py-12 bg-[#020409] font-mono text-xs text-slate-500 border-t border-white/[0.08] relative z-10">
+  <footer class="ep-topbar py-12 text-xs text-slate-500 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-3">
         <span class="text-white font-black font-sans text-sm">ELECTRO<span class="text-nexa-mint">PLAST</span> S.A.</span>
@@ -793,7 +783,7 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS MODULARES -->
+  <!-- SCRIPTS -->
   <script src="js/cosmos.js"></script>
   <script src="js/simulator3d.js"></script>
   <script src="js/main.js"></script>
